@@ -1,4 +1,4 @@
-package com.harnet.arttesting.view
+package com.harnet.arttesting.viewModel
 
 import androidx.lifecycle.ViewModel
 
