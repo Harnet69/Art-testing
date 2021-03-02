@@ -26,7 +26,11 @@
         android:id="@+id/artAddingFragment"
         android:name="com.harnet.arttesting.view.ArtAddingFragment"
         android:label="art_adding_fragment"
-        tools:layout="@layout/art_adding_fragment" />
+        tools:layout="@layout/art_adding_fragment" >
+        <action
+            android:id="@+id/action_artAddingFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.harnet.arttesting.view.SearchFragment"
