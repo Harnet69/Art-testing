@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Art Testing</string>
+    <string name="btn_add_art">Add art</string>
+    <string name="art_year">Year</string>
+    <string name="art_author">Author</string>
+    <string name="art_name">Name</string>
+    <string name="art_image_description">Art image</string>
 </resources>

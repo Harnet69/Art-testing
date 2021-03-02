@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_artsFragment_to_artDetailsFragment"
             app:destination="@id/artDetailsFragment" />
+        <action
+            android:id="@+id/action_artsFragment_to_artAddingFragment"
+            app:destination="@id/artAddingFragment" />
     </fragment>
     <fragment
         android:id="@+id/artDetailsFragment"
         android:name="com.harnet.arttesting.view.ArtDetailsFragment"
         android:label="art_details_fragment"
         tools:layout="@layout/art_details_fragment" />
+    <fragment
+        android:id="@+id/artAddingFragment"
+        android:name="com.harnet.arttesting.view.ArtAddingFragment"
+        android:label="art_adding_fragment"
+        tools:layout="@layout/art_adding_fragment" />
 </navigation>
