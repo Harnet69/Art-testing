@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.harnet.arttesting.R
 import com.harnet.arttesting.viewModel.ArtsViewModel
 
 class ArtsFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ArtsFragment()
-    }
 
     private lateinit var viewModel: ArtsViewModel
 
@@ -24,10 +22,16 @@ class ArtsFragment : Fragment() {
         return inflater.inflate(R.layout.arts_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ArtsViewModel::class.java)
-        // TODO: Use the ViewModel
+        clickAndAddArt(view.findViewById(R.id.fab))
+    }
+
+    private fun clickAndAddArt(button: FloatingActionButton){
+        button.setOnClickListener {
+            Navigation.findNavController(button).navigate(ArtsFragmentDirections.actionArtsFragmentToArtAddingFragment())
+        }
     }
 
 }

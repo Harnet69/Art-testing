@@ -9,11 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.harnet.arttesting.R
 
 class ArtDetailsFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = ArtDetailsFragment()
-    }
-
     private lateinit var viewModel: ArtDetailsViewModel
 
     override fun onCreateView(
@@ -23,10 +18,9 @@ class ArtDetailsFragment : Fragment() {
         return inflater.inflate(R.layout.art_details_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ArtDetailsViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
