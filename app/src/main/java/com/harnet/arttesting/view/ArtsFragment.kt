@@ -1,4 +1,4 @@
-package com.harnet.arttesting
+package com.harnet.arttesting.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.harnet.arttesting.R
+import com.harnet.arttesting.viewModel.ArtsViewModel
 
 class ArtsFragment : Fragment() {
 

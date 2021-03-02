@@ -7,7 +7,16 @@
 
     <fragment
         android:id="@+id/artsFragment"
-        android:name="com.harnet.arttesting.ArtsFragment"
+        android:name="com.harnet.arttesting.view.ArtsFragment"
         android:label="arts_fragment"
-        tools:layout="@layout/arts_fragment" />
+        tools:layout="@layout/arts_fragment" >
+        <action
+            android:id="@+id/action_artsFragment_to_artDetailsFragment"
+            app:destination="@id/artDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/artDetailsFragment"
+        android:name="com.harnet.arttesting.view.ArtDetailsFragment"
+        android:label="art_details_fragment"
+        tools:layout="@layout/art_details_fragment" />
 </navigation>
