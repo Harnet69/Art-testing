@@ -7,15 +7,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.harnet.arttesting.R
+import com.harnet.arttesting.databinding.ArtsFragmentBinding
 import com.harnet.arttesting.viewModel.ArtsViewModel
 
 class ArtsFragment : Fragment(R.layout.arts_fragment) {
     private lateinit var viewModel: ArtsViewModel
+    private lateinit var viewBinding: ArtsFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ArtsViewModel::class.java)
-        clickAndAddArt(view.findViewById(R.id.fab))
+        viewBinding = ArtsFragmentBinding.bind(view)
+
+        clickAndAddArt(viewBinding.fab)
     }
 
     private fun clickAndAddArt(button: FloatingActionButton){
