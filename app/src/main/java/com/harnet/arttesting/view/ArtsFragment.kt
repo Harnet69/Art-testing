@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.harnet.arttesting.R
 import com.harnet.arttesting.databinding.ArtsFragmentBinding
@@ -24,7 +24,7 @@ class ArtsFragment : Fragment(R.layout.arts_fragment) {
 
     private fun clickAndAddArt(button: FloatingActionButton){
         button.setOnClickListener {
-            Navigation.findNavController(button).navigate(ArtsFragmentDirections.actionArtsFragmentToArtAddingFragment())
+            findNavController().navigate(ArtsFragmentDirections.actionArtsFragmentToArtAddingFragment())
         }
     }
 
