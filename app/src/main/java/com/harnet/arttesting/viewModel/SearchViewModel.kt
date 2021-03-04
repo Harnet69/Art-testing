@@ -3,25 +3,26 @@ package com.harnet.arttesting.viewModel
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.harnet.arttesting.model.ImageResponse
 import com.harnet.arttesting.repository.ArtRepositoryInterface
 import com.harnet.arttesting.util.Resource
+import kotlinx.coroutines.launch
 
 class SearchViewModel @ViewModelInject constructor(
     private val repository: ArtRepositoryInterface
 ) : ViewModel() {
-
     var searchedImages = MutableLiveData<Resource<ImageResponse>>()
-    val selectedImageUrl = MutableLiveData<String>()
+    private val selectedImageUrl = MutableLiveData<String>()
 
     //TODO can not working, because of the lack of coroutine
-    private suspend fun searchImages(imageString: String) {
+    private fun searchImages(imageString: String) = viewModelScope.launch {
         searchedImages.value = repository.searchImg(imageString)
     }
 
     //TODO select the image from recyclerView Adapter
-    fun selectImage() {
-
+    fun selectImage(imgUrl: String) {
+        selectedImageUrl.value = imgUrl
     }
 
 }
