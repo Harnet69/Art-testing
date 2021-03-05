@@ -28,7 +28,7 @@ class SearchFragment @Inject constructor(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(SearchViewModel::class.java)
     }
 
 }

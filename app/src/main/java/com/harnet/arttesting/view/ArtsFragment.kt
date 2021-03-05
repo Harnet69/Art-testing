@@ -43,7 +43,7 @@ class ArtsFragment @Inject constructor(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ArtsViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ArtsViewModel::class.java)
         viewBinding = ArtsFragmentBinding.bind(view)
 
         observeViewModel()

@@ -10,7 +10,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    private lateinit var fragmentFactory: ArtFragmentFactory
+    lateinit var fragmentFactory: ArtFragmentFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

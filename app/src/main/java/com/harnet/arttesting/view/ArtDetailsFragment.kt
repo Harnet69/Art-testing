@@ -26,7 +26,7 @@ class ArtDetailsFragment : Fragment(R.layout.art_details_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ArtDetailsViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(ArtDetailsViewModel::class.java)
 
         //handling onBackPress dispatcher
         val callback = object : OnBackPressedCallback(true){
