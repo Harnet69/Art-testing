@@ -2,7 +2,13 @@ package com.harnet.arttesting.di
 
 import android.content.Context
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.harnet.arttesting.R
+import com.harnet.arttesting.repository.ArtRepository
+import com.harnet.arttesting.repository.ArtRepositoryInterface
 import com.harnet.arttesting.retrofit.RetrofitAPI
+import com.harnet.arttesting.room.ArtDao
 import com.harnet.arttesting.room.ArtDatabase
 import com.harnet.arttesting.util.Util.BASE_URL
 import dagger.Module
@@ -30,11 +36,24 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun injectRetrofitAPI(): RetrofitAPI{
+    fun injectRetrofitAPI(): RetrofitAPI {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
             .create(RetrofitAPI::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun injectArtRepository(dao: ArtDao, api: RetrofitAPI) = ArtRepository(dao, api) as ArtRepositoryInterface
+
+
+    @Singleton
+    @Provides
+    fun injectGlide(@ApplicationContext context: Context) = Glide.with(context)
+        .setDefaultRequestOptions(
+            RequestOptions().placeholder(R.drawable.ic_img_default)
+                .error(R.drawable.ic_launcher_foreground)
+        )
 }
