@@ -7,11 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.harnet.arttesting.R
+import com.harnet.arttesting.adapter.ArtRecyclerAdapter
 import com.harnet.arttesting.databinding.SearchFragmentBinding
 import com.harnet.arttesting.util.FragmentBindingProvider
 import com.harnet.arttesting.viewModel.SearchViewModel
+import javax.inject.Inject
 
-class SearchFragment : Fragment() {
+class SearchFragment @Inject constructor(
+    searchRecyclerAdapter: ArtRecyclerAdapter
+) : Fragment() {
     private lateinit var viewModel: SearchViewModel
     private val binding: SearchFragmentBinding by FragmentBindingProvider(R.layout.search_fragment)
 
