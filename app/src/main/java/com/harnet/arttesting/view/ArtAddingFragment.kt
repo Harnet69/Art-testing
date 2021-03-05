@@ -6,11 +6,15 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.bumptech.glide.RequestManager
 import com.harnet.arttesting.R
 import com.harnet.arttesting.databinding.ArtAddingFragmentBinding
 import com.harnet.arttesting.viewModel.ArtAddingViewModel
+import javax.inject.Inject
 
-class ArtAddingFragment: Fragment(R.layout.art_adding_fragment) {
+class ArtAddingFragment @Inject constructor(
+    val glide: RequestManager
+) : Fragment(R.layout.art_adding_fragment) {
     private lateinit var viewModel: ArtAddingViewModel
     private var viewBinding: ArtAddingFragmentBinding? = null
 
