@@ -8,7 +8,7 @@ data class Art(
     val name: String,
     val author: String,
     val imageUrl: String,
-    val year: String,
+    val year: Int,
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null
 )

@@ -16,8 +16,17 @@ class SearchViewModel @ViewModelInject constructor(
     private val selectedImageUrl = MutableLiveData<String>()
 
     //TODO can not working, because of the lack of coroutine
-    private fun searchImages(imageString: String) = viewModelScope.launch {
-        searchedImages.value = repository.searchImg(imageString)
+    private fun searchImages(imageString: String) {
+        if (imageString.isEmpty()){
+            return
+        }
+        // loading image state
+        searchedImages.value = Resource.loading(null)
+        //when image was loaded
+        viewModelScope.launch {
+            val response = repository.searchImg(imageString)
+            searchedImages.value = response
+        }
     }
 
     //TODO select the image from recyclerView Adapter
