@@ -1,6 +1,7 @@
 package com.harnet.arttesting.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,13 +41,14 @@ class SearchFragment @Inject constructor(
         viewModel = ViewModelProvider(requireActivity()).get(SearchViewModel::class.java)
 
         binding.foundArtsListRecyclerView.adapter = searchRecyclerAdapter
-        //TODO check if it Linear Layout? Three images will be shown side-by-side
+        //three images will be shown side-by-side
         binding.foundArtsListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
 
         //set listener to an recycler view item
         searchRecyclerAdapter.setOnItemClickListener {imgUrl ->
             //TODO is it necessary to return there?
-            findNavController().popBackStack()
+//            findNavController().popBackStack()
+            Log.i("In=mageUrl", "onViewCreated: $imgUrl")
             viewModel.selectImage(imgUrl)
         }
 
@@ -91,6 +93,10 @@ class SearchFragment @Inject constructor(
                     binding.searchProgressBar.visibility = View.VISIBLE
                 }
             }
+        })
+
+        viewModel.mSelectedImageUrl.observe(viewLifecycleOwner, {imageUrl ->
+            findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToArtAddingFragment(imageUrl))
         })
     }
 

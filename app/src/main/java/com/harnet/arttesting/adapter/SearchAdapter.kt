@@ -1,5 +1,6 @@
 package com.harnet.arttesting.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,13 +46,13 @@ class SearchAdapter @Inject constructor(
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
         //TODO implement ViewBinding here
-
         val imageView = holder.itemView.findViewById<ImageView>(R.id.artImg_ItemSearch)
         val imageUrl = images[position]
         holder.itemView.apply {
             glide.load(imageUrl).into(imageView)
             // own realisation
-            setOnItemClickListener {
+            setOnClickListener {
+                Log.i("In=mageUrl", "onBindViewHolder: $imageUrl")
                 onItemClickListener?.let {
                     it(imageUrl)
                 }

@@ -59,7 +59,7 @@ class ArtsFragment @Inject constructor(
 
     private fun clickAndAddArt(button: FloatingActionButton){
         button.setOnClickListener {
-            findNavController().navigate(ArtsFragmentDirections.actionArtsFragmentToArtAddingFragment())
+            findNavController().navigate(ArtsFragmentDirections.actionArtsFragmentToArtAddingFragment(null))
         }
     }
 

@@ -34,6 +34,14 @@ class ArtAddingFragment @Inject constructor(
             }
         }
 
+        //add image if it already chosen
+        arguments?.let {
+            val imageUrl = ArtAddingFragmentArgs.fromBundle(it).imgUrl
+            imageUrl?.let {
+                viewBinding?.artImageArtAdding?.let { it1 -> glide.load(imageUrl).into(it1) }
+            }
+        }
+
         //handling onBackPress dispatcher
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
