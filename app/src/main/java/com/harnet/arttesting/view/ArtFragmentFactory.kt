@@ -4,11 +4,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.bumptech.glide.RequestManager
 import com.harnet.arttesting.adapter.ArtRecyclerAdapter
+import com.harnet.arttesting.adapter.SearchAdapter
 import javax.inject.Inject
 
 class ArtFragmentFactory @Inject constructor(
     private val artRecyclerAdapter: ArtRecyclerAdapter,
-    private val searchRecyclerAdapter: ArtRecyclerAdapter,
+    private val searchRecyclerAdapter: SearchAdapter,
     private val glide: RequestManager
 ): FragmentFactory() {
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {

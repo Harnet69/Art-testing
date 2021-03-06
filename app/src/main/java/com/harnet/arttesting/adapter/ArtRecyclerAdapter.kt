@@ -16,6 +16,7 @@ import javax.inject.Inject
 class ArtRecyclerAdapter @Inject constructor(
     private val glide: RequestManager
 ): RecyclerView.Adapter<ArtRecyclerAdapter.ArtViewHolder>() {
+
     // More efficient way!!! calculates the difference between two lists and outputs a list of update operations that
     // converts the first list into the second one
     private val diffUtil = object : DiffUtil.ItemCallback<Art>(){

@@ -12,26 +12,26 @@ import kotlinx.coroutines.launch
 class SearchViewModel @ViewModelInject constructor(
     private val repository: ArtRepositoryInterface
 ) : ViewModel() {
-    var searchedImages = MutableLiveData<Resource<ImageResponse>>()
-    private val selectedImageUrl = MutableLiveData<String>()
+    var mSearchedImages = MutableLiveData<Resource<ImageResponse>>()
+    val mSelectedImageUrl = MutableLiveData<String>()
 
     //TODO can not working, because of the lack of coroutine
-    private fun searchImages(imageString: String) {
+    fun searchImages(imageString: String) {
         if (imageString.isEmpty()){
             return
         }
         // loading image state
-        searchedImages.value = Resource.loading(null)
+        mSearchedImages.value = Resource.loading(null)
         //when image was loaded
         viewModelScope.launch {
             val response = repository.searchImg(imageString)
-            searchedImages.value = response
+            mSearchedImages.value = response
         }
     }
 
     //TODO select the image from recyclerView Adapter
     fun selectImage(imgUrl: String) {
-        selectedImageUrl.value = imgUrl
+        mSelectedImageUrl.value = imgUrl
     }
 
 }
