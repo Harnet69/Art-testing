@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 class ArtAddingViewModel @ViewModelInject constructor(private val repository: ArtRepositoryInterface) : ViewModel() {
     //keeping the state of image loading?
     var mInsertArtMsg = MutableLiveData<Resource<Art>>()
-    val selectedImgUrl = MutableLiveData<String>()
+    var selectedImgUrl = MutableLiveData<String>()
 
     private fun insertImageToDb(art: Art) = viewModelScope.launch {
         repository.insertArt(art)
@@ -21,6 +21,7 @@ class ArtAddingViewModel @ViewModelInject constructor(private val repository: Ar
     // when the art was successfully added to a database
     fun resetInsertArtMessage(){
         mInsertArtMsg = MutableLiveData<Resource<Art>>()
+        selectedImgUrl = MutableLiveData<String>()
     }
 
     // when a user clicks on an image
@@ -47,7 +48,6 @@ class ArtAddingViewModel @ViewModelInject constructor(private val repository: Ar
         //if selectedImgUrl isn't valid add empty string
         val art = Art(artName, artAuthor, selectedImgUrl.value ?: "", yearInt)
         insertImageToDb(art)
-        setSelectedImg("")
         mInsertArtMsg.postValue(Resource.success(art))
     }
 }

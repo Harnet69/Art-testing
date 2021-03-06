@@ -34,6 +34,9 @@
             android:name="imgUrl"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_artAddingFragment_to_artsFragment"
+            app:destination="@id/artsFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

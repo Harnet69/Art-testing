@@ -35,9 +35,10 @@ class ArtAddingFragment @Inject constructor(
         }
 
         //add image if it already chosen
-        arguments?.let {
-            val imageUrl = ArtAddingFragmentArgs.fromBundle(it).imgUrl
+        arguments?.let {bundle ->
+            val imageUrl = ArtAddingFragmentArgs.fromBundle(bundle).imgUrl
             imageUrl?.let {
+                viewModel.setSelectedImg(it)
                 viewBinding?.artImageArtAdding?.let { it1 -> glide.load(imageUrl).into(it1) }
             }
         }
@@ -67,9 +68,9 @@ class ArtAddingFragment @Inject constructor(
                 Status.SUCCESS -> {
                     Toast.makeText(requireContext(), "Successfully added", Toast.LENGTH_SHORT).show()
                     //TODO can be a problem
-                    findNavController().popBackStack()
                     //reset status of loading to neutral
                     viewModel.resetInsertArtMessage()
+                    findNavController().navigate(ArtAddingFragmentDirections.actionArtAddingFragmentToArtsFragment())
                 }
                 Status.LOADING -> {
                     Toast.makeText(requireContext(), "Loading...", Toast.LENGTH_SHORT).show()
