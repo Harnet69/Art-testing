@@ -30,10 +30,6 @@ class ArtAddingViewModel @ViewModelInject constructor(private val repository: Ar
         selectedImgUrl.postValue(url)
     }
 
-    fun deleteArt(art: Art) = viewModelScope.launch{
-        repository.deleteArt(art)
-    }
-
     fun validateUserInput(artName: String, artAuthor: String, artYear: String){
         if(artName.isEmpty() || artAuthor.isEmpty() || artYear.isEmpty()){
             mInsertArtMsg.postValue(Resource.error("Field can't be empty", null))
