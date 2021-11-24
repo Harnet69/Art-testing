@@ -92,7 +92,7 @@ class ArtAddingFragment @Inject constructor(
     private fun addArtListener(addBtn: MaterialButton) {
         addBtn.setOnClickListener {
             viewBinding?.let {
-                viewModel.validateUserInput(
+                viewModel.addArt(
                     it.artNameArtAdding.text.toString(),
                     it.artAuthorArtAdding.text.toString(),
                     it.artYearArtAdding.text.toString()

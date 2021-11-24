@@ -1,4 +1,4 @@
-package com.harnet.arttesting.viewModel
+package com.harnet.arttesting
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
