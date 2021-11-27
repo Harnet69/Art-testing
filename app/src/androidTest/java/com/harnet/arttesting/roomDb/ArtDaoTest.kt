@@ -1,7 +1,5 @@
 package com.harnet.arttesting.roomDb
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
@@ -59,7 +57,12 @@ class ArtDaoTest {
 
     @Test
     fun deleteArtTesting() = runBlockingTest{
+        val exampleArt = Art("Test art", "Test author", "test.com", 1503, 1)
+        dao.insertArt(exampleArt)
+        dao.deleteArt(exampleArt)
 
+        val artsList = dao.getAllArts().getOrAwaitValue()
+        assertThat(artsList).doesNotContain(exampleArt)
     }
 
 }
