@@ -1,15 +1,17 @@
 package com.harnet.arttesting.viewModel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harnet.arttesting.model.ImageResponse
 import com.harnet.arttesting.repository.ArtRepositoryInterface
 import com.harnet.arttesting.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SearchViewModel @ViewModelInject constructor(
+@HiltViewModel
+class SearchViewModel @Inject constructor(
     private val repository: ArtRepositoryInterface
 ) : ViewModel() {
     var mSearchedImages = MutableLiveData<Resource<ImageResponse>>()

@@ -1,6 +1,5 @@
 package com.harnet.arttesting.viewModel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,9 +7,12 @@ import com.harnet.arttesting.repository.ArtRepositoryInterface
 import com.harnet.arttesting.room.Art
 import com.harnet.arttesting.util.Resource
 import com.harnet.arttesting.util.Status
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ArtAddingViewModel @ViewModelInject constructor(private val repository: ArtRepositoryInterface) :
+@HiltViewModel
+class ArtAddingViewModel @Inject constructor(private val repository: ArtRepositoryInterface) :
     ViewModel() {
     //keeping the state of image loading?
     var mInsertArtMsg = MutableLiveData<Resource<Art>>()

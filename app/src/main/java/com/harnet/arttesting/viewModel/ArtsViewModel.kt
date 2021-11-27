@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.harnet.arttesting.repository.ArtRepositoryInterface
 import com.harnet.arttesting.room.Art
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ArtsViewModel @ViewModelInject constructor(
+@HiltViewModel
+class ArtsViewModel @Inject constructor(
     // in tests we fake this repository
     private val repository: ArtRepositoryInterface
 ): ViewModel() {
