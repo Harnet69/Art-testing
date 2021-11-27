@@ -17,7 +17,15 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.atilsamancioglu.artbookhilttesting.HiltTestRunner"
+        testInstrumentationRunner "com.harnet.arttesting.HiltTestRunner"
+    }
+
+    packagingOptions {
+        exclude "win32-x86/attach_hotspot_windows.dll"
+        exclude "win32-x86-64/attach_hotspot_windows.dll"
+        exclude "META-INF/licenses/ASM"
+        exclude "META-INF/AL2.0"
+        exclude "META-INF/LGPL2.1"
     }
 
     buildTypes {

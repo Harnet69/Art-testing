@@ -1,5 +1,7 @@
 package com.harnet.arttesting.roomDb
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
@@ -42,11 +44,13 @@ class ArtDaoTest {
         database = Room.inMemoryDatabaseBuilder(ApplicationProvider.getApplicationContext(), ArtDatabase::class.java)
             .allowMainThreadQueries()
             .build()
+
+        dao = database.artDao()
     }
 
     @Test
     fun insertArtTesting() = runBlockingTest{
-        val exampleArt = Art("Test art", "Test author", "test.com", 1503)
+        val exampleArt = Art("Test art", "Test author", "test.com", 1503, 1)
         dao.insertArt(exampleArt)
 
         val artsList = dao.getAllArts().getOrAwaitValue()
