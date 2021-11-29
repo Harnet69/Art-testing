@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.harnet.arttesting.R
-import com.harnet.arttesting.room.Art
+import com.harnet.arttesting.roomDb.Art
 import javax.inject.Inject
 
 class ArtRecyclerAdapter @Inject constructor(

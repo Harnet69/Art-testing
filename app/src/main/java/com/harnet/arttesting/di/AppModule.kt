@@ -8,8 +8,8 @@ import com.harnet.arttesting.R
 import com.harnet.arttesting.repository.ArtRepository
 import com.harnet.arttesting.repository.ArtRepositoryInterface
 import com.harnet.arttesting.retrofit.RetrofitAPI
-import com.harnet.arttesting.room.ArtDao
-import com.harnet.arttesting.room.ArtDatabase
+import com.harnet.arttesting.roomDb.ArtDao
+import com.harnet.arttesting.roomDb.ArtDatabase
 import com.harnet.arttesting.util.Util.BASE_URL
 import dagger.Module
 import dagger.Provides

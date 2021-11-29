@@ -3,7 +3,7 @@ package com.harnet.arttesting.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.harnet.arttesting.model.ImageResponse
-import com.harnet.arttesting.room.Art
+import com.harnet.arttesting.roomDb.Art
 import com.harnet.arttesting.util.Resource
 
 class FakeArtRepository: ArtRepositoryInterface {

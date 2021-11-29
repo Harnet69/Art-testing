@@ -1,4 +1,4 @@
-package com.harnet.arttesting.room
+package com.harnet.arttesting.roomDb
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

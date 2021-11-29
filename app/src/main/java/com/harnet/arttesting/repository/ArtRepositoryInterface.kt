@@ -2,7 +2,7 @@ package com.harnet.arttesting.repository
 
 import androidx.lifecycle.LiveData
 import com.harnet.arttesting.model.ImageResponse
-import com.harnet.arttesting.room.Art
+import com.harnet.arttesting.roomDb.Art
 import com.harnet.arttesting.util.Resource
 
 // created by the testing reason. Allows to get a fake ArtRepository

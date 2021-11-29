@@ -3,8 +3,8 @@ package com.harnet.arttesting.repository
 import androidx.lifecycle.LiveData
 import com.harnet.arttesting.model.ImageResponse
 import com.harnet.arttesting.retrofit.RetrofitAPI
-import com.harnet.arttesting.room.Art
-import com.harnet.arttesting.room.ArtDao
+import com.harnet.arttesting.roomDb.Art
+import com.harnet.arttesting.roomDb.ArtDao
 import com.harnet.arttesting.util.Resource
 import javax.inject.Inject
 
