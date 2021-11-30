@@ -20,7 +20,7 @@ import javax.inject.Inject
 class ArtAddingFragment @Inject constructor(
     val glide: RequestManager
 ) : Fragment(R.layout.art_adding_fragment) {
-    private lateinit var viewModel: ArtAddingViewModel
+    lateinit var viewModel: ArtAddingViewModel
     private var viewBinding: ArtAddingFragmentBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
